@@ -1,0 +1,31 @@
+{{template "base" .}}
+{{define "title"}}Login{{end}}
+{{define "main"}}
+
+    <div>
+        {{with .Question}}
+
+                <div>
+
+                    <a href="/askme/question/?id={{.Id}}"><p>{{.Quest}}</p></a><br><br>
+
+                    <div>
+                        <form action="/askme/answer" method="post">
+                            <input type="text" name="answer"><br>
+                            <button style="border-radius: 5%;border: salmon solid 2px"  name="q_id" value="{{.Id}}">answer</button>
+                        </form>
+                    </div>
+
+                    <div>
+                        {{range .Answers}}
+                            <p>{{.Answer}}</p>
+                        {{end}}
+                    </div>
+                </div>
+
+
+
+        {{end}}
+    </div>
+
+{{end}}

@@ -1,0 +1,49 @@
+{{template "base" .}}
+{{define "title"}}Login{{end}}
+{{define "main"}}
+    {{if .IsError}}<p class="error">{{.Not}}</p>}{{end}}
+    <div>
+        <div>
+            <fieldset >
+                <legend>questions</legend>
+                <div style="display: grid;grid-template-columns: 1fr 1fr 1fr">
+                    {{if .Questions}}
+                        {{range .Questions}}
+                            <div>
+
+                                <a methods="get" href="/askme/question/?id={{.Id}}"><p>{{.Quest}}</p></a><br><br>
+
+                                <div>
+                                    <form action="/askme/deleteQuestion" method="post">
+
+                                        <button style="border-radius: 5%;border: salmon solid 2px"  name="q_id" value="{{.Id}}">delete quest</button>
+                                    </form>
+                                </div>
+
+                                <div>
+                                    {{range .Answers}}
+                                        <p>{{.Answer}}</p>
+                                        <form action="/askme/deleteAnswer" method="post">
+
+                                            <button style="border-radius: 5%;border: salmon solid 2px"  name="a_id" value="{{.Id}}">delete answer</button>
+                                        </form>
+                                    {{end}}
+                                </div>
+                            </div>
+
+                        {{end}}
+
+                    {{end}}
+                </div>
+
+
+
+
+
+
+
+            </fieldset>
+        </div>
+    </div>
+
+{{end}}

@@ -1,0 +1,7 @@
+.header {
+    display: flex;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 20px 10px;
+}
+

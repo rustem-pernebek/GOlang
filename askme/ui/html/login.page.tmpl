@@ -1,0 +1,11 @@
+{{template "base" .}}
+{{define "title"}}Login{{end}}
+{{define "main"}}
+  {{if .IsError}}<p class="error">{{.Not}}</p> {{end}}
+<form method="post" action="/askme/login">
+    <input type="text" name="login"><br><br>
+    <input type="text" name="password"><br><br>
+    <input type="checkbox" value="rr" name="asAdmin"> login as admin<br><br>
+    <input type="submit" value="login">
+</form>
+{{end}}

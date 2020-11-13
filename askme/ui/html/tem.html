@@ -1,0 +1,23 @@
+{{template "base" .}}
+{{define "title"}}Login{{end}}
+{{define "main"}}
+
+    <div>
+        {{with .Qestions}}
+            {{range .Qetions}}
+                <div>
+
+                    <a href="/askme/qestion/?id={{.ID}}"><p>{{.Qestion}}</p></a><br><br>
+                    <div>
+                        {{range .Answers}}
+                            <p>{{.Answer}}</p>
+                        {{end}}
+                    </div>
+                </div>
+
+            {{end}}
+
+        {{end}}
+    </div>
+
+{{end}}
